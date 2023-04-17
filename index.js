@@ -10,25 +10,35 @@
 //cluster --> mai blog-app likha hai yeh basically database hai cluster yaani database.
  
 import express from 'express';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 
-import Connection from './databse/db.js'; //yaha par extension likhna compulsory hai yeh likhna padega.
+import cors from "cors";
+import bodyParser from 'body-parser';
+
+import Connection from './database/db.js'; //yaha par extension likhna compulsory hai yeh likhna padega.
 
 import Router from './routes/route.js';
+
+
+
 
 dotenv.config();
 
 const app =express();
 
+app.use(cors());
+app.use(bodyParser.json({extended:true}));
+app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/',Router);
 
-const port =8000;
+
+const port = 8000;
 
 app.listen(port,() => console.log(`server is running successfully on Port  ${port}`) );
 
 const USERNAME =process.env.DB_USERNAME;
 const PASSWORD =process.env.DB_PASSWORD;
 
-Connection(USERNAME, PASSWORD);
+Connection(USERNAME,PASSWORD);
 
