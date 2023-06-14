@@ -1,11 +1,11 @@
 
 import grid from 'gridfs-stream';
 import mongoose from 'mongoose';
-// import dotenv from 'dotenv';
+import dotenv from 'dotenv';
 
-// dotenv.config();
+dotenv.config();
 
-const url = ''; 
+const url = `${process.env.BASE_URL}`; 
 
 let gfs,gridfsBucket; //ek global varible liya hai 
 const conn = mongoose.connection;
