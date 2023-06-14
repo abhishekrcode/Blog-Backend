@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const url = "https://blogappbackend-25o0.onrender.com"; 
+const url = `${process.env.BASE_URL}`; 
 
 let gfs,gridfsBucket; //ek global varible liya hai 
 const conn = mongoose.connection;
@@ -29,7 +29,6 @@ export const uploadImage = (request,response) => {
     //backend humara kaha par chal raha hai wo url chahiye hoga
 
     const imageUrl = `${url}/file/${request.file.filename}`;
-
     return response.status(200).json(imageUrl);
 }
 
