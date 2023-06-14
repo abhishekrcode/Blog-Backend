@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const url = `${process.env.BASE_URL}`; 
+const url = process.env.BASE_URL; 
 
 let gfs,gridfsBucket; //ek global varible liya hai 
 const conn = mongoose.connection;
